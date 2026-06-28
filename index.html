@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* 根據截圖進行色彩微調：大地茶系與莫蘭迪綠 */
+            /* 莫蘭迪大地茶系色彩配置 */
             --color-bg-main: #F9F9F6;     /* 溫潤清透米白底色 */
             --color-card: #FFFFFF;        /* 純白淨心卡片 */
-            --color-moss-dark: #4A5331;   /* 截圖核心：莫蘭迪深綠 */
+            --color-moss-dark: #4A5331;   /* 莫蘭迪深綠 */
             --color-moss-light: #8E9A74;  /* 療癒草綠色 */
             --color-text-dark: #2C2C2A;   /* 深焙茶褐黑字 */
             --color-accent-amber: #D9A05B;/* 溫暖琥珀蜜色 */
@@ -48,14 +48,13 @@
                     <i class="fa-solid fa-mug-hot"></i>
                 </div>
                 <h2 class="text-lg font-bold tracking-wide text-stone-900">歡迎來到 聊心茶室</h2>
-                <p class="text-xs text-stone-700/90 leading-relaxed text-left bg-stone-50/80 p-4 rounded-xl border border-stone-200/60">
-                    親愛的茶友您好，在泡茶傾聽之前想與您說明：為了能在您需要時提供最即時的關懷，本茶室設有智慧引導評估。
-                    <br><br>
-                    若您未來選擇前往本平台媒合的實體特約醫院或諮商所就診，**您是否同意將「智慧情緒狀態燈號」（絕對加密，非對話隱私內容）分享給院方醫護與專業心理師**，以利他們在第一時間快速了解您的療癒需求、開啟綠色通道？
-                </p>
+                <div class="text-xs text-stone-700/90 leading-relaxed text-left bg-stone-50/80 p-4 rounded-xl border border-stone-200/60 space-y-2">
+                    <p>親愛的茶友您好，在泡茶傾聽之前想與您說明：為了能在您需要時提供最即時的關懷，本茶室設有智慧引導評估。</p>
+                    <p>若您未來選擇前往本平台媒合的實體特約醫院或諮商所就診，<strong>您是否同意將「智慧情緒狀態燈號」（絕對加密，非對話隱私內容）分享給院方醫護與專業心理師</strong>，以利他們在第一時間快速了解您的療癒需求、開啟綠色通道？</p>
+                </div>
             </div>
             <div class="mt-6 flex flex-col sm:flex-row gap-2">
-                <button onclick="handleInitialConsent(true)" class="flex-1 bg-[#606C38] hover:bg-[#4A5331] text-white text-sm font-medium py-2.5 px-4 rounded-xl transition shadow-lg cursor-pointer">
+                <button onclick="handleInitialConsent(true)" class="flex-1 bg-[#606C38] hover:bg-[#4A5331] text-white text-sm font-medium py-2.5 px-4 rounded-xl transition shadow-md cursor-pointer">
                     <i class="fa-solid fa-circle-check mr-1.5"></i>我同意分享狀態
                 </button>
                 <button onclick="handleInitialConsent(false)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-sm font-medium py-2.5 px-4 rounded-xl transition cursor-pointer">
@@ -67,7 +66,7 @@
 
     <div id="subscriptionModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/40 backdrop-blur-md">
         <div class="bg-white border border-stone-100 max-w-md w-full rounded-2xl p-6 shadow-2xl msg-animate text-stone-800 relative">
-            <button onclick="closeModal('subscriptionModal')" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600 cursor-pointer text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <button onclick="closeModal('subscriptionModal')" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600 cursor-pointer text-lg" aria-label="關閉彈窗"><i class="fa-solid fa-xmark"></i></button>
             <div class="text-center space-y-2 mb-4">
                 <div class="w-11 h-11 bg-stone-50 text-[#8E9A74] rounded-full flex items-center justify-center mx-auto text-lg"><i class="fa-solid fa-leaf"></i></div>
                 <h3 class="text-base font-bold text-stone-900">升級「深度聽心」長期療癒方案</h3>
@@ -97,7 +96,7 @@
 
     <div id="partnerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/40 backdrop-blur-md">
         <div class="bg-white border border-stone-100 max-w-lg w-full rounded-2xl p-6 shadow-2xl msg-animate text-stone-800 relative">
-            <button onclick="closeModal('partnerModal')" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600 cursor-pointer text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <button onclick="closeModal('partnerModal')" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600 cursor-pointer text-lg" aria-label="關閉彈窗"><i class="fa-solid fa-xmark"></i></button>
             <div class="mb-4">
                 <h3 class="text-base font-bold text-stone-900 flex items-center gap-1.5"><i class="fa-solid fa-hospital text-emerald-700"></i> 聊心茶室 - 特約醫療與諮商媒合成效</h3>
                 <p class="text-xs text-stone-500 mt-0.5">系統自動去識別化，精準將高需求茶友無縫導流至合適的專家時段。</p>
@@ -122,11 +121,11 @@
                     <span class="text-[11px] text-emerald-600 font-medium"><i class="fa-solid fa-circle-check"></i> 狀態同步正常</span>
                 </div>
                 <div class="p-2.5 bg-stone-50 rounded-lg flex justify-between items-center text-xs">
-                    <span class="font-medium text-slate-700">🌱 曦谷心理諮商所 (特約合作機構)</span>
+                    <span class="font-medium text-stone-700">🌱 曦谷心理諮商所 (特約合作機構)</span>
                     <span class="text-[11px] text-emerald-600 font-medium"><i class="fa-solid fa-circle-check"></i> 快速排診開啟</span>
                 </div>
                 <div class="p-2.5 bg-stone-50 rounded-lg flex justify-between items-center text-xs">
-                    <span class="font-medium text-slate-700">🤝 聊心茶室特約專業心理師群</span>
+                    <span class="font-medium text-stone-700">🤝 聊心茶室特約專業心理師群</span>
                     <span class="text-[11px] text-emerald-600 font-medium"><i class="fa-solid fa-circle-check"></i> 線上諮詢即時媒合</span>
                 </div>
             </div>
@@ -148,6 +147,7 @@
                 <a href="#therapists" class="hover:text-[#606C38] transition">專家名冊</a>
                 <a href="#how-it-works" class="hover:text-[#606C38] transition">使用指南</a>
                 <a href="#difference" class="hover:text-[#606C38] transition">核心優勢</a>
+                <a href="#faq" class="hover:text-[#606C38] transition">常見問答</a>
             </nav>
 
             <div class="bg-stone-50 p-1 rounded-xl border border-stone-200 flex items-center gap-1">
@@ -164,26 +164,26 @@
 
     <section id="hero" class="bg-gradient-to-b from-stone-50 to-white px-6 py-14 text-center border-b border-stone-200/40">
         <div class="max-w-4xl mx-auto space-y-5">
-            <span class="text-xs font-bold uppercase tracking-widest text-[#8E9A74] bg-[#606C38]/10 px-3 py-1 rounded-full">線上心理諮商媒合平台</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#8E9A74] bg-[#606C38]/10 px-3 py-1 rounded-full">智慧型心理諮商精準媒合平台</span>
             <h2 class="text-3xl md:text-4xl font-black text-stone-900 tracking-tight leading-tight">
-                30秒，找到適合你的心理師
+                30秒，找到最懂你的心理諮詢專家
             </h2>
             <p class="text-xs md:text-sm text-stone-500 max-w-xl mx-auto leading-relaxed">
-                不需填寫冗長複雜的心理量表。先喝杯茶、隨意聊聊你此刻的心情，由智慧助手溫柔為你梳理思緒，並精準導流至最合適的專業心理師諮詢時段。
+                不需填寫冗長複雜的傳統量表。先喝杯茶、隨意聊聊你此刻的心情，由智慧聽心助手溫柔為你梳理思緒、初步分診，並精準對接最合適的專業心理師諮詢時段。
             </p>
             
-            <div class="pt-4 flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
-                <span onclick="quickInput('最近課業和生活壓力真的好大，壓得我喘不過氣來，每天都好焦慮...')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">壓力真的好大</span>
-                <span onclick="quickInput('我想多了解自己，做一些深度的自我探索與成長，找到未來的職涯方向。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">自我探索與成長</span>
-                <span onclick="quickInput('我陷入了感情方面的煩惱，不知道該怎麼和對方溝通，覺得很內耗。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">感情方面的煩惱</span>
-                <span onclick="quickInput('和家人間的關係好緊繃，每次溝通最後都變成冷戰或爭吵，心好累。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">和家人間的關係</span>
-                <span onclick="quickInput('最近常常覺得莫名地難過、提不起勁做任何事，情緒很低落。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">情緒上的困擾</span>
-                <span onclick="quickInput('每天晚上躺在床上都東思西想停不下來，失眠好久了，好想好好睡個覺。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">想好好睡個覺</span>
+            <div class="pt-4 flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+                <span onclick="quickInput('最近課業和生活壓力真的好大，事情多到壓得我喘不過氣來，每天都好焦慮，不知道怎麼辦...')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">課業與生活壓力大</span>
+                <span onclick="quickInput('我想多了解自己，做一些深度的自我探索與心靈成長，同時也想找到未來的職涯發展與前進方向。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">自我探索與職涯迷惘</span>
+                <span onclick="quickInput('我陷入了感情方面的煩惱，不知道該怎麼和另一半溝通，每次想好好談談最後都變成冷戰或互相傷害。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">感情婚姻與親密關係</span>
+                <span onclick="quickInput('和原生家庭間的關係好緊繃，每次回家或和父母溝通都覺得壓力好大，最後都變成爭吵，心真的好累。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">原生家庭與人際窒息感</span>
+                <span onclick="quickInput('最近常常覺得莫名地難過、提不起勁做任何事，對以前喜歡的東西都失去興趣，情緒整天都很低落。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">情緒低落與提不起勁</span>
+                <span onclick="quickInput('每天晚上躺在床上都東思西想停不下來，失眠好久了，好想好好睡個覺，身體已經快要撐不住了。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">長期失眠與睡眠障礙</span>
             </div>
             
             <div class="pt-4">
                 <a href="#chat-section" class="inline-flex items-center gap-2 bg-[#606C38] hover:bg-[#4A5331] text-white text-xs font-bold px-5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5">
-                    進入聊心體驗 <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    進入線上聊心體驗 <i class="fa-solid fa-chevron-down text-[10px]"></i>
                 </a>
             </div>
         </div>
@@ -191,7 +191,7 @@
 
     <section id="chat-section" class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1">
         
-        <div class="lg:col-span-2 flex flex-col bg-white rounded-2xl border border-stone-200/80 shadow-sm overflow-hidden min-h-[580px]">
+        <div class="lg:col-span-2 flex flex-col bg-white rounded-2xl border border-stone-200/80 shadow-sm overflow-hidden min-h-[640px]">
             <div class="p-4 bg-stone-50/50 border-b border-stone-200/60 flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <div class="relative">
@@ -215,7 +215,7 @@
                     </div>
                     <div class="flex-1">
                         <h4 class="text-xs font-bold text-stone-900">🌸 辛苦了，茶室聽見妳的疲憊與不容易</h4>
-                        <p class="text-[11px] text-stone-500 mt-0.5 leading-relaxed">我們注意到您累積了極其沉重的壓力。請記得，尋求專業心理師或醫療資源是照顧自己最勇敢的表現，聊心茶室隨時陪伴您媒合最溫柔的專家時段。</p>
+                        <p class="text-[11px] text-stone-500 mt-0.5 leading-relaxed">我們注意到您累積了極其沉重的壓力。請記得，尋求專業心理師或醫療資源是照顧自己最勇敢的表現，聊心茶室隨時陪伴您媒合最溫柔的專家時段，我們一起面對。</p>
                         <div class="mt-2 flex gap-2">
                             <a href="#therapists" class="text-[10px] bg-[#606C38] hover:bg-[#4A5331] text-white px-3 py-1.5 rounded-lg font-bold transition shadow-xs">陪我預約合適心理師</a>
                         </div>
@@ -223,7 +223,7 @@
                 </div>
             </div>
 
-            <div id="chatContainer" class="flex-1 p-5 overflow-y-auto space-y-4 h-[380px] bg-white">
+            <div id="chatContainer" class="flex-1 p-5 overflow-y-auto space-y-4 h-[420px] bg-white">
                 <div class="flex gap-3 max-w-[85%] msg-animate">
                     <div class="w-7 h-7 rounded-full bg-[#606C38] flex items-center justify-center text-white flex-shrink-0 shadow-xs">
                         <i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i>
@@ -232,7 +232,7 @@
                         <p class="text-[10px] font-bold text-stone-400">智慧助手</p>
                         <div class="text-xs text-stone-800 bg-stone-50 p-3.5 rounded-2xl rounded-tl-none leading-relaxed space-y-2 border border-stone-100">
                             <p>你好呀！我是聊心茶室的智慧助手。在這裡，你可以像在安靜的茶館裡一樣，毫無保留地傾訴你日常的委屈、緊繃的壓力和心裡的煩惱。</p>
-                            <p class="text-[11px] text-stone-500 font-medium">💡 妳可以隨意輸入任何心聲，我會為妳推薦適合的心理諮商領域專家。</p>
+                            <p class="text-[11px] text-stone-500 font-medium">💡 妳可以隨意輸入任何心情或遇到的困擾，我會為妳梳理思緒，並精準推薦適合的心理師專家。</p>
                         </div>
                     </div>
                 </div>
@@ -274,7 +274,7 @@
                         </div>
                     </div>
                     <div class="bg-stone-100/60 p-2.5 rounded-lg border border-dashed border-stone-200 text-center text-[10px] text-stone-500">
-                        <i class="fa-solid fa-user-shield text-[#8E9A74] mr-1"></i> 對話內文受嚴格隱私加密與法規保護
+                        <i class="fa-solid fa-user-shield text-[#8E9A74] mr-1"></i> 對話內文受嚴密隱私加密與法規保護
                         <p class="text-[9px] text-stone-400 mt-0.5">心理師僅能知悉大體狀態燈號，絕對無法查閱您的私密聊天細節</p>
                     </div>
                 </div>
@@ -285,11 +285,11 @@
                 <div class="space-y-2 text-xs">
                     <div onclick="openModal('subscriptionModal')" class="bg-stone-50 p-2.5 rounded-xl border-l-4 border-[#8E9A74] hover:bg-stone-100 transition-all cursor-pointer transform hover:-translate-y-0.5 shadow-2xs">
                         <p class="font-bold text-stone-900 flex justify-between items-center"><span>1. 長期情緒追蹤 (訂閱制)</span> <i class="fa-solid fa-chevron-right text-[9px] text-stone-400"></i></p>
-                        <p class="text-[10px] text-stone-500 mt-0.5 leading-relaxed">解鎖長期的心情起伏茶韻曲線，並與市面穿戴裝置深度連動生理指標。</p>
+                        <p class="text-[10px] text-stone-500 mt-0.5 leading-relaxed">解鎖長期的心情起伏茶韻曲線，並與市面穿戴裝置深度連動生理指標，預警潛在壓力。</p>
                     </div>
                     <div onclick="openModal('partnerModal')" class="bg-stone-50 p-2.5 rounded-xl border-l-4 border-stone-600 hover:bg-stone-100 transition-all cursor-pointer transform hover:-translate-y-0.5 shadow-2xs">
                         <p class="font-bold text-stone-900 flex justify-between items-center"><span>2. 專家與機構綠色通道</span> <i class="fa-solid fa-chevron-right text-[9px] text-stone-400"></i></p>
-                        <p class="text-[10px] text-stone-500 mt-0.5 leading-relaxed">與台灣優質心理諮商所、身心科院所合作，協助高風險與高需求個案精準對接。</p>
+                        <p class="text-[10px] text-stone-500 mt-0.5 leading-relaxed">與台灣優質心理諮商所、身心科院所合作，協助高風險與高需求個案精準且優先對接。</p>
                     </div>
                 </div>
             </div>
@@ -299,62 +299,131 @@
     <section id="therapists" class="bg-stone-50 border-t border-b border-stone-200/60 py-12 px-6">
         <div class="max-w-7xl mx-auto space-y-8">
             <div class="text-center space-y-1.5">
-                <h3 class="text-2xl font-black text-stone-900">合規專業心理師 專家媒合</h3>
-                <p class="text-xs text-stone-500 max-w-lg mx-auto">聊心茶室嚴格審查所有登錄專家資歷，皆具備國家合格諮商/臨床心理師證照。</p>
+                <h3 class="text-2xl font-black text-stone-900">合格合規專業心理師 專家名冊</h3>
+                <p class="text-xs text-stone-500 max-w-lg mx-auto">聊心茶室嚴格審查所有登錄專家資歷，皆具備衛生福利部合格之諮商/臨床心理師證照。</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white border border-stone-200 p-5 rounded-2xl shadow-2xs space-y-3.5">
-                    <div class="flex items-center gap-3.5">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=150&h=150" alt="心理師" class="w-12 h-12 rounded-full object-cover shadow-sm border border-stone-200">
-                        <div>
-                            <h4 class="text-sm font-bold text-stone-900">黃昱倫 心理師</h4>
-                            <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 block mt-1 w-max font-medium">#自我探索 #職涯發展</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-stone-500 leading-relaxed h-12 overflow-hidden text-ellipsis">
-                        「我就像南部的溫暖天氣一樣，富有熱情與包容。我擅長用敘事治療陪伴面對迷惘的你，一起看見內在無限的潛能...」
-                    </p>
-                    <div class="flex justify-between items-center pt-2 border-t border-stone-100 text-xs">
-                        <span class="font-bold text-stone-700 font-mono">NTD $2,600 / 小時</span>
-                        <button onclick="alert('預約功能正常運作！已將您的智慧情緒評估與黃心理師的系統排程快速媒合連動。')" class="bg-[#606C38] hover:bg-[#4A5331] text-white text-[10px] px-2.5 py-1.5 rounded-lg font-bold cursor-pointer transition">預約排診</button>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-stone-200 p-5 rounded-2xl shadow-2xs space-y-3.5 border-l-4 border-l-[#8E9A74]">
-                    <div class="flex items-center gap-3.5">
-                        <img src="https://images.unsplash.com/photo-1594824813573-246434e33963?auto=format&fit=crop&q=80&w=150&h=150" alt="邱意婷 心理師" class="w-12 h-12 rounded-full object-cover shadow-sm border border-stone-200">
-                        <div>
-                            <div class="flex items-center gap-1.5">
-                                <h4 class="text-sm font-bold text-stone-900">邱意婷 心理師</h4>
-                                <span class="text-[9px] bg-amber-50 text-amber-700 border border-amber-200 px-1 rounded font-bold">熱門✨</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white border border-stone-200 p-5 rounded-2xl shadow-2xs space-y-4 flex flex-col justify-between transition-all hover:shadow-md">
+                    <div class="space-y-3.5">
+                        <div class="flex items-center gap-3.5">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150" alt="黃昱倫 心理師" class="w-14 h-14 rounded-full object-cover shadow-sm border border-stone-200">
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-900">黃昱倫 諮商心理師</h4>
+                                <span class="text-[10px] text-stone-400 font-medium block">諮心字第003412號</span>
+                                <div class="flex flex-wrap gap-1 mt-1">
+                                    <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 font-medium">#自我探索</span>
+                                    <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 font-medium">#職涯發展</span>
+                                </div>
                             </div>
-                            <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 block mt-1 w-max font-medium">#親密關係 #多元文化適應</span>
+                        </div>
+                        <div class="bg-stone-50 p-3 rounded-xl border border-stone-100">
+                            <p class="text-xs font-bold text-[#606C38] mb-1">💬 溫暖引言：</p>
+                            <p class="text-xs text-stone-600 leading-relaxed italic">
+                                「我就像南部的溫暖天氣一樣，富有熱情與包容。我擅長用敘事治療陪伴面對迷惘的你，一起看見內在無限的潛能...」
+                            </p>
+                        </div>
+                        <div class="text-[11px] text-stone-500 space-y-1">
+                            <p class="font-medium text-stone-700">【關於心理師】</p>
+                            <p class="leading-relaxed">專長於青年職涯焦慮、生命意義探索與個人核心韌性培養。透過有溫度的對話，陪伴個案在混亂的日常中梳理出清晰的藍圖。</p>
                         </div>
                     </div>
-                    <p class="text-xs text-stone-500 leading-relaxed h-12 overflow-hidden text-ellipsis">
-                        諮心字第2930號。擅長以線上陪伴全球華人個案，處理跨國文化衝擊、遠距離情感、女性產前產後心理調適及留學生生涯適應壓力。
-                    </p>
-                    <div class="flex justify-between items-center pt-2 border-t border-stone-100 text-xs">
-                        <span class="font-bold text-stone-700 font-mono">NTD $3,500 / 小時</span>
-                        <button onclick="alert('已為您快速預約邱意婷心理師線上諮詢時段，智慧分析狀態已秒級發送至心理師端。')" class="bg-[#606C38] hover:bg-[#4A5331] text-white text-[10px] px-2.5 py-1.5 rounded-lg font-bold cursor-pointer transition">預約排診</button>
+                    <div class="flex justify-between items-center pt-3 border-t border-stone-100 text-xs mt-2">
+                        <span class="font-bold text-stone-700 font-mono">NTD $2,000 / 節</span>
+                        <button onclick="bookTherapist('黃昱倫心理師')" class="bg-[#606C38] hover:bg-[#4A5331] text-white text-[10px] px-3 py-2 rounded-lg font-bold cursor-pointer transition shadow-xs">預約排診</button>
                     </div>
                 </div>
 
-                <div class="bg-white border border-stone-200 p-5 rounded-2xl shadow-2xs space-y-3.5">
-                    <div class="flex items-center gap-3.5">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=150&h=150" alt="許豔秋 心理師" class="w-12 h-12 rounded-full object-cover shadow-sm border border-stone-200">
-                        <div>
-                            <h4 class="text-sm font-bold text-stone-900">許豔秋 心理師</h4>
-                            <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 block mt-1 w-max font-medium">#人際互動 #情緒困擾</span>
+                <div class="bg-white border border-stone-200 p-5 rounded-2xl shadow-2xs space-y-4 border-l-4 border-l-[#8E9A74] flex flex-col justify-between transition-all hover:shadow-md">
+                    <div class="space-y-3.5">
+                        <div class="flex items-center gap-3.5">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150&h=150" alt="邱意婷 心理師" class="w-14 h-14 rounded-full object-cover shadow-sm border border-stone-200">
+                            <div>
+                                <div class="flex items-center gap-1.5">
+                                    <h4 class="text-sm font-bold text-stone-900">邱意婷 諮商心理師</h4>
+                                    <span class="text-[9px] bg-amber-50 text-amber-700 border border-amber-200 px-1 rounded font-bold">熱門✨</span>
+                                </div>
+                                <span class="text-[10px] text-stone-400 font-medium block">諮心字第002930號</span>
+                                <div class="flex flex-wrap gap-1 mt-1">
+                                    <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 font-medium">#親密關係</span>
+                                    <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 font-medium">#情感內耗</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-stone-50 p-3 rounded-xl border border-stone-100">
+                            <p class="text-xs font-bold text-[#606C38] mb-1">💬 溫暖引言：</p>
+                            <p class="text-xs text-stone-600 leading-relaxed italic">
+                                「陪伴許多在愛裡受挫、習慣內耗的靈魂。讓我們在線上為疲憊的心架一座橋，重新找回親密關係中的安全感...」
+                            </p>
+                        </div>
+                        <div class="text-[11px] text-stone-500 space-y-1">
+                            <p class="font-medium text-stone-700">【關於心理師】</p>
+                            <p class="leading-relaxed">深耕跨國文化適應、高內耗親密關係與伴侶諮商。善用客體關係理論，協助個案覺察感情中的重複卡關行為，重塑安全依附。</p>
                         </div>
                     </div>
-                    <p class="text-xs text-stone-500 leading-relaxed h-12 overflow-hidden text-ellipsis">
-                        諮心字第005158號。具備資深臨床與諮商實務，深信每段人生幽谷都有其獨特意義，致力於在安全無評判的氛圍中陪你在黑暗中尋找溫暖光芒。
-                    </p>
-                    <div class="flex justify-between items-center pt-2 border-t border-stone-100 text-xs">
-                        <span class="font-bold text-stone-700 font-mono">NTD $4,000 / 小時</span>
-                        <button onclick="alert('已成功模擬排定許豔秋心理師諮商時段，感謝您使用聊心茶室媒合系統！')" class="bg-[#606C38] hover:bg-[#4A5331] text-white text-[10px] px-2.5 py-1.5 rounded-lg font-bold cursor-pointer transition">預約排診</button>
+                    <div class="flex justify-between items-center pt-3 border-t border-stone-100 text-xs mt-2">
+                        <span class="font-bold text-stone-700 font-mono">NTD $2,500 / 節</span>
+                        <button onclick="bookTherapist('邱意婷心理師')" class="bg-[#606C38] hover:bg-[#4A5331] text-white text-[10px] px-3 py-2 rounded-lg font-bold cursor-pointer transition shadow-xs">預約排診</button>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-stone-200 p-5 rounded-2xl shadow-2xs space-y-4 flex flex-col justify-between transition-all hover:shadow-md">
+                    <div class="space-y-3.5">
+                        <div class="flex items-center gap-3.5">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=150&h=150" alt="陳駿豪 諮商心理師" class="w-14 h-14 rounded-full object-cover shadow-sm border border-stone-200">
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-900">陳駿豪 諮商心理師</h4>
+                                <span class="text-[10px] text-stone-400 font-medium block">諮心字第004185號</span>
+                                <div class="flex flex-wrap gap-1 mt-1">
+                                    <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 font-medium">#原生家庭</span>
+                                    <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 font-medium">#人際界線</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-stone-50 p-3 rounded-xl border border-stone-100">
+                            <p class="text-xs font-bold text-[#606C38] mb-1">💬 溫暖引言：</p>
+                            <p class="text-xs text-stone-600 leading-relaxed italic">
+                                「家庭的影子很長，但我們可以學著不被它絆倒。我擅長陪伴你釐清家庭角色，在愛與劃定健康界線之間找到平衡點。」
+                            </p>
+                        </div>
+                        <div class="text-[11px] text-stone-500 space-y-1">
+                            <p class="font-medium text-stone-700">【關於心理師】</p>
+                            <p class="leading-relaxed">專精原生家庭創傷、家庭溝通拉扯、人際界線窒息感與情緒勒索應對。透過結構化學派對話，協助個案在緊繃關係中重獲自由。</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center pt-3 border-t border-stone-100 text-xs mt-2">
+                        <span class="font-bold text-stone-700 font-mono">NTD $2,200 / 節</span>
+                        <button onclick="bookTherapist('陳駿豪心理師')" class="bg-[#606C38] hover:bg-[#4A5331] text-white text-[10px] px-3 py-2 rounded-lg font-bold cursor-pointer transition shadow-xs">預約排診</button>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-stone-200 p-5 rounded-2xl shadow-2xs space-y-4 flex flex-col justify-between transition-all hover:shadow-md">
+                    <div class="space-y-3.5">
+                        <div class="flex items-center gap-3.5">
+                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=150&h=150" alt="許豔秋 心理師" class="w-14 h-14 rounded-full object-cover shadow-sm border border-stone-200">
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-900">許豔秋 臨床心理師</h4>
+                                <span class="text-[10px] text-stone-400 font-medium block">臨心字第005158號</span>
+                                <div class="flex flex-wrap gap-1 mt-1">
+                                    <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 font-medium">#深度情緒困擾</span>
+                                    <span class="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded border border-stone-200/60 font-medium">#長期失眠</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-stone-50 p-3 rounded-xl border border-stone-100">
+                            <p class="text-xs font-bold text-[#606C38] mb-1">💬 溫暖引言：</p>
+                            <p class="text-xs text-stone-600 leading-relaxed italic">
+                                「深信每段人生幽谷都有其獨特意義，致力於在安全、不批判的氛圍中陪伴你，在黑夜中尋找重啟生理與心理平衡的微光。」
+                            </p>
+                        </div>
+                        <div class="text-[11px] text-stone-500 space-y-1">
+                            <p class="font-medium text-stone-700">【關於心理師】</p>
+                            <p class="leading-relaxed">具備15年醫學中心臨床身心實務經驗。擅長深度憂鬱焦慮調適、創傷整合、原生家庭糾結以及重度失眠與壓力造成的生理焦慮調適。</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center pt-3 border-t border-stone-100 text-xs mt-2">
+                        <span class="font-bold text-stone-700 font-mono">NTD $3,000 / 節</span>
+                        <button onclick="bookTherapist('許豔秋心理師')" class="bg-[#606C38] hover:bg-[#4A5331] text-white text-[10px] px-3 py-2 rounded-lg font-bold cursor-pointer transition shadow-xs">預約排診</button>
                     </div>
                 </div>
             </div>
@@ -363,30 +432,30 @@
 
     <section id="how-it-works" class="py-12 px-6 max-w-4xl mx-auto space-y-10">
         <div class="text-center space-y-1.5">
-            <h3 class="text-xl font-bold text-stone-900">簡單三步驟，精准媒合專業心理師</h3>
-            <p class="text-xs text-stone-400">大數據智慧分析與線上一對一諮商的高效、安全無縫串接</p>
+            <h3 class="text-xl font-bold text-stone-900">簡單三步驟，精準媒合專業心理師</h3>
+            <p class="text-xs text-stone-400">大數據智慧語意分析與線上/實體諮商的高效、安全無縫串接</p>
         </div>
         
         <div class="space-y-4">
             <div class="flex flex-col md:flex-row items-start gap-4 bg-white p-5 rounded-xl border border-stone-200/80 shadow-2xs">
                 <div class="text-xl font-black text-[#8E9A74] font-mono">01</div>
                 <div class="space-y-0.5">
-                    <h4 class="text-xs font-bold text-stone-900">隨意傾訴，智慧語意即時分析</h4>
-                    <p class="text-xs text-stone-500 leading-relaxed">利用最上方的對話框，像與老朋友聊天一樣隨興寫下妳近期的壓力或困擾，系統將全自動、去識別化地分析您的心理狀態與媒合領域。</p>
+                    <h4 class="text-xs font-bold text-stone-900">隨意傾訴，智慧語意即時評估</h4>
+                    <p class="text-xs text-stone-500 leading-relaxed">利用最上方的對話框，像與老朋友聊天一樣隨興寫下妳近期的壓力或困擾，系統將全自動、去識別化地分析您的心理情緒調性與媒合領域。</p>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row items-start gap-4 bg-white p-5 rounded-xl border border-stone-200/80 shadow-2xs">
                 <div class="text-xl font-black text-[#8E9A74] font-mono">02</div>
                 <div class="space-y-0.5">
-                    <h4 class="text-xs font-bold text-stone-900">智能化推薦合適領域心理師</h4>
-                    <p class="text-xs text-stone-500 leading-relaxed">助手會根據分析結果，為您推薦最契合您煩惱領域的心理師（如感情、職涯、家庭、文化適應），省去盲目尋找與反覆試錯的時間。</p>
+                    <h4 class="text-xs font-bold text-stone-900">智能化推薦最適專長心理師</h4>
+                    <p class="text-xs text-stone-500 leading-relaxed">聽心助手會根據分析結果，為您推薦最契合您煩惱領域的心理師專家（如感情、自我探索、家庭關係），省去盲目尋找與反覆試錯的時間成本。</p>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row items-start gap-4 bg-white p-5 rounded-xl border border-stone-200/80 shadow-2xs">
                 <div class="text-xl font-black text-[#8E9A74] font-mono">03</div>
                 <div class="space-y-0.5">
                     <h4 class="text-xs font-bold text-stone-900">一鍵授權預約，開啟線上/實體綠色通道</h4>
-                    <p class="text-xs text-stone-500 leading-relaxed">確認預約後，可自由選擇是否將您的基礎情緒狀態同步給對接的心理師，讓專家在諮商前做足最溫柔、最完善的客製化調適準備。</p>
+                    <p class="text-xs text-stone-500 leading-relaxed">確認預約後，可自由選擇是否將您的基礎情緒茶韻燈號同步給對接的心理師或特約機構，讓專家在諮商前做足最完善的客製化調適準備。</p>
                 </div>
             </div>
         </div>
@@ -396,7 +465,7 @@
         <div class="max-w-4xl mx-auto space-y-8">
             <div class="text-center space-y-1.5">
                 <h3 class="text-xl font-bold text-stone-900">聊心茶室與傳統傳統實體機構的差異</h3>
-                <p class="text-xs text-stone-400">更即時、更精準的科技賦能，為大腦建立第一道防護網</p>
+                <p class="text-xs text-stone-400">更即時、更精準的科技賦能，為大腦與心靈建立第一道溫柔防護網</p>
             </div>
             
             <div class="overflow-x-auto rounded-xl border border-stone-200 shadow-2xs bg-white">
@@ -412,25 +481,50 @@
                         <tr>
                             <td class="p-3 font-semibold text-stone-800">專業證照心理師把關</td>
                             <td class="p-3 bg-stone-50/40 text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> 全體嚴格實名審查認證</td>
-                            <td class="p-3 text-stone-500">✔ 需現場或官網逐一排程確認</td>
+                            <td class="p-3 text-stone-500">✔ 同樣具備國家合格專業證照</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-semibold text-stone-800">時間無地域限制</td>
-                            <td class="p-3 bg-stone-50/40 text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> 隨時隨地即刻開啟心靈對話</td>
-                            <td class="p-3 text-stone-400"><i class="fa-solid fa-xmark"></i> 須受限實體門診與舟車勞頓</td>
+                            <td class="p-3 bg-stone-50/40 text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> 隨時隨地即刻開啟心靈對話與媒合</td>
+                            <td class="p-3 text-stone-400"><i class="fa-solid fa-xmark"></i> 須受限實體門診營業時間與舟車勞頓</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-semibold text-stone-800">大數據語意分診</td>
-                            <td class="p-3 bg-stone-50/40 text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> 精準語意識別與健康數據追蹤</td>
-                            <td class="p-3 text-stone-400"><i class="fa-solid fa-xmark"></i> 缺乏數字化與即時心理反饋</td>
+                            <td class="p-3 bg-stone-50/40 text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> 精準語意識別與長期健康數據追蹤</td>
+                            <td class="p-3 text-stone-400"><i class="fa-solid fa-xmark"></i> 依靠傳統初談紙本量表，耗時且生硬</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-semibold text-stone-800">諮商端即時燈號連線</td>
-                            <td class="p-3 bg-stone-50/40 text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> 一鍵加密分享，免去重述之痛</td>
-                            <td class="p-3 text-stone-400"><i class="fa-solid fa-xmark"></i> 機構間病歷不相通，每次皆需重填</td>
+                            <td class="p-3 bg-stone-50/40 text-emerald-700 font-bold"><i class="fa-solid fa-check"></i> 一鍵加密分享基礎調性，免去反覆重述之痛</td>
+                            <td class="p-3 text-stone-400"><i class="fa-solid fa-xmark"></i> 機構間資訊不相通，換地方就要重新敘述創傷</td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-12 px-6 max-w-4xl mx-auto space-y-8">
+        <div class="text-center space-y-1.5">
+            <h3 class="text-xl font-bold text-stone-900">常見問題解答 FAQ</h3>
+            <p class="text-xs text-stone-400">關於隱私安全、媒合機制與付費方式的詳細說明</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white p-4.5 rounded-xl border border-stone-200/80 shadow-2xs space-y-1">
+                <h4 class="text-xs font-bold text-stone-900">Q1. 智慧助手會偷看我的私密聊天對話嗎？</h4>
+                <p class="text-xs text-stone-500 leading-relaxed">絕對不會。所有對話內容皆進行去識別化技術與最高規格加密。即使您授權同步狀態，心理師端系統也僅能看到大體的「情緒狀態燈號」（如微風煦煦、微雨積雲），無法查閱您的具體私密文字。</p>
+            </div>
+            <div class="bg-white p-4.5 rounded-xl border border-stone-200/80 shadow-2xs space-y-1">
+                <h4 class="text-xs font-bold text-stone-900">Q2. 這項服務能完全取代傳統實體諮商嗎？</h4>
+                <p class="text-xs text-stone-500 leading-relaxed">聊心茶室定位為「心靈的第一道防護網與導流通道」。我們透過智慧科技協助您在30秒內釐清卡關領域，並無縫精準對接最合適的線上諮詢或實體特約特約諮商所、身心科院所，發揮相輔相成的最佳效果。</p>
+            </div>
+            <div class="bg-white p-4.5 rounded-xl border border-stone-200/80 shadow-2xs space-y-1">
+                <h4 class="text-xs font-bold text-stone-900">Q3. 如果智慧助手判斷我是高風險「紅色級別」會怎麼樣？</h4>
+                <p class="text-xs text-stone-500 leading-relaxed">若系統偵測到高危關鍵字，頁面將立刻跳出關懷 Banner 並啟動臨床心理師特約綠色通道，提供優先排診協助。同時，我們也會強烈建議並提供安心專線與生命線聯絡方式，確保您的安全獲得最即時的守護。</p>
+            </div>
+            <div class="bg-white p-4.5 rounded-xl border border-stone-200/80 shadow-2xs space-y-1">
+                <h4 class="text-xs font-bold text-stone-900">Q4. 「深度聽心」長期療癒方案要收費嗎？</h4>
+                <p class="text-xs text-stone-500 leading-relaxed">核心的「對話體驗」與「專家排診媒合」是完全免費的。付費訂閱方案則是針對希望解鎖「長期情緒茶韻曲線圖表」以及「智慧穿戴生理壓力同步數據分析」的茶友所設計的深度加值服務。</p>
             </div>
         </div>
     </section>
@@ -444,60 +538,54 @@
         let currentSystemColor = 'green'; 
         let isThinking = false; 
         
-        const dangerKeywords = ['想不開', '絕望', '自殘', '想死', '自殺', '活著好累', '撐不下去了', '放棄一切'];
-        const warningKeywords = ['壓力大', '焦慮', '失眠', '很煩', '難過', '提不起勁', '心好累', '好無助', '內耗'];
+        const dangerKeywords = ['想不開', '絕望', '自殘', '想死', '自殺', '活著好累', '撐不下去了', '放棄一切', '結束生命'];
+        const warningKeywords = ['壓力大', '焦慮', '失眠', '很煩', '難過', '提不起勁', '心好累', '好無助', '內耗', '溝通', '冷戰', '感情', '原生家庭', '迷惘', '吵架', '爭吵'];
 
-        // 超大幅擴充與優化後的聊心對話資料庫（同理暖心話語 -> 深度解析 -> 具體茶室媒合建議）
+        // 對話回應資料庫（豐富內容並提升共情深度）
         const coreResponses = {
             green: {
+                therapist: "黃昱倫 諮商心理師",
                 empathy: [
                     "很高興聽到妳分享這段心聲。能夠靜下心來捕捉自己內心的微小漣漪，並願意在這裡說出來，這本身就是一場非常美好的自我覺察起步呢。",
-                    "謝謝妳願意敞開心胸，把這裡當作妳暫時歇腳的角落。在忙碌又喧囂的生活節奏中，能留給自己一杯茶的時間好好跟內心對話，真的很不容易。",
-                    "聽完妳說的，我能感覺到妳有一顆敏銳且細細體會生活的心。在舒適、放鬆的心境下給自己一個沉澱的空間，是非常健康且勇敢的舉動。"
+                    "謝謝妳願意敞開心胸，把這裡當作妳暫時歇腳的角落。在忙碌又喧囂的生活節奏中，能留給自己一盞茶的時間好好跟內心對話，真的很不容易。"
                 ],
                 analysis: [
-                    "從妳的字裡行間可以看出來，妳目前的心靈韌性與狀態其實非常平穩、有彈性。這是一個非常適合溫柔沉澱、累積心理核心正能量的黃金期。",
-                    "目前妳的防護防線處於一個非常舒適的綠色區塊。大腦運作平緩，這正是打造專屬『生活儀式感』、進行深層核心內在成長的最佳契機。",
-                    "現在的妳思緒清明、心理邊界完整。這樣平靜安穩的心理基調，不論是安排一場微旅行，或是閱讀一本一直想看的書，都能得到加倍的滋養。"
+                    "從妳的字裡行間可以看出來，妳目前的心靈韌性與狀態其實非常平穩、富有彈性。這是一個非常適合溫柔沉澱、累積心理核心正能量的黃金期。",
+                    "目前妳的防護防線處於一個非常舒適的綠色區塊。思緒運作平緩，這正是打造專屬『生活儀式感』、進行深層核心內在成長的最佳契機。"
                 ],
                 advice: [
-                    "建議妳今晚可以給自己留一段完全不被打擾的『Me Time』。喝杯溫熱的洋甘菊茶，或寫寫感恩日記，把這份安寧溫柔地封存下來。",
-                    "如果在自我探索的路上想更有系統性地探索潛能，右側名冊中專長於『自我探索與職涯發展』的黃昱倫心理師會是非常適合陪妳對談的茶友唷！",
-                    "日常中若偶爾感到迷惘、疲憊，別忘了聊心茶室隨時在這裡為妳留一盞燈。我們一起在平穩中步伐堅定地慢慢往前走吧。"
+                    "如果在自我探索的路上想更有系統性地發掘潛能，名冊中專長於『自我探索與職涯發展』的黃昱倫心理師會是非常適合陪妳對談的茶友唷！妳希望我幫妳直接引導到他的預約排程，還是想聊聊具體的探索方向呢？",
+                    "日常中若偶爾感到些許迷惘，別忘了聊心茶室隨時在這裡為妳留一盞燈。建議妳今晚可以給自己留一段完全不被打擾的 Me Time，我們一起在平穩中步伐堅定地慢慢往前走。"
                 ]
             },
             amber: {
+                therapist: "邱意婷 諮商心理師",
                 empathy: [
                     "看著妳留下的這些文字，我深深地感受到妳最近肩膀上真的扛了好多沉重的心事。這段時間過得有些緊繃、有些內耗，真的辛苦妳了。",
-                    "聽得出來妳最近真的把自己逼得太緊、太累了。那些日常累積起來的焦慮與煩躁感，就像積雲一樣壓在胸口，讓人感覺能量都快被抽空了對吧？",
-                    "我知道妳一直都很努力想把每件事情都做好，但這些接踵而來的壓力，真的會讓人感到一陣陣的心慌與無助。想哭或者想抱怨都沒關係的。"
+                    "聽得出來妳最近真的把自己逼得太緊、太累了。那些日常累積起來的焦慮與煩躁感，就像積雲一樣壓在胸口，讓人感覺能量都快被抽空了對吧？"
                 ],
                 analysis: [
-                    "目前的妳像是一場快要下雨的積雲狀態。無論是課業上的高強度、人際間的隱形拉扯，還是對未來的不確定，都在悄悄透支妳的耐性與睡眠品質。",
-                    "妳的大腦似乎在不知不覺中開啟了『超載防禦機制』。過度運轉的思緒讓妳晚上容易東思西想，進而導致白天提不起勁、產生無力感。",
-                    "這是一種心靈在對妳發出『請暫停一下』的警訊。妳的內在能量正在被中度耗損，這種緊繃感如果沒有適度宣洩，會讓原本強大的妳感到與世界孤立。"
+                    "目前的妳像是一場快要下雨的積雲狀態。無論是人際間的隱形拉扯、親密關係的內耗，還是對未來的不確定，都在悄悄透支妳的心理耐性與睡眠品質。",
+                    "這是一種心靈在對妳發出『請暫停一下』的警訊。妳的內在能量正在被中度耗損，這種緊繃感如果沒有適度宣洩，會讓人感到與世界孤立。"
                 ],
                 advice: [
-                    "現在，請試著把肩膀放鬆、做個深呼吸。今晚不需要再去思考如何解決那些煩惱，把難題留給明天吧，現在的妳最需要的是無罪惡感地好好睡一覺。",
-                    "找信任的朋友聊聊會很有幫助。另外，右側專精於『多元適應與情感家庭』的邱意婷心理師，非常擅長用溫柔的線上諮詢幫茶友梳理一團亂的線球，推薦妳去看看她的預約時段唷。",
-                    "妳不需要隨時都裝作很堅強、什麼事都能搞定。泡杯溫水、洗個熱水澡，按下生活的暫停鍵，聊心茶室會一直在這裡陪妳分擔這份重量。"
+                    "找專業且溫柔的第三方聊聊會很有幫助。專精於『關係梳理與情感調適』的邱意婷心理師，非常擅長用溫柔的對話幫茶友梳理一團亂的線球，要不要看看她最近的特約諮商時段呢？",
+                    "或者是針對原生家庭與溝通拉扯的部分，『陳駿豪諮商心理師』也十分擅長協助劃定健康的人際界線。妳不需要隨時都裝作很堅強，泡杯溫水、按下生活的暫停鍵，妳也可以試著在下面告訴我，是哪一個特定的煩惱最讓妳感到心累？"
                 ]
             },
             red: {
+                therapist: "許豔秋 臨床心理師",
                 empathy: [
                     "看著這些充滿窒息感的文字，我的心也跟著緊緊縮了一下...我深深地感受到妳此刻正被巨大無邊的痛苦與黑暗包圍著，真的好心疼妳。",
-                    "對不起，讓妳獨自承受了這麼沉重、快要窒息的痛苦。看到妳寫下這些，我什麼都不想勉強妳，只想跨越螢幕給妳一個最深、最溫柔的擁抱。",
-                    "這段日子妳到底是受了多少委屈、撐過了多少個心碎的夜晚，才會累積成現在這樣鋪天蓋地的絕望...謝謝妳在這麼痛苦的時刻還願意對我傾訴。"
+                    "對不起，讓妳獨自承受了這麼沉重、快要窒息的痛苦。看到妳寫下這些，我什麼都不想勉強妳，只想跨越螢幕給妳一個最深、最溫柔的擁抱。"
                 ],
                 analysis: [
-                    "妳的心理能量現在已經亮起了極度危險的紅色警報。壓力的重量已經徹底超越了一個人所能負荷的極限，才會讓妳的大腦釋放出想要放棄一切的訊號。",
-                    "請妳一定要記住：這絕對絕對不是妳的錯，更不是因為妳軟弱。相反地，是因為妳真的太努力、太溫柔地撐得太久太久了，大腦才生病了、累壞了。",
-                    "當絕望感將視野完全遮蔽時，思緒會變得非常單一且極端。這是生理與心理超載的典型防禦反應，妳需要專業的防護衣與拉妳一把的溫暖雙手。"
+                    "妳的心理能量現在已經亮起了急度危險的紅色警報。壓力的重量已經徹底超越了一個人所能負荷的極限，才會讓妳的大腦釋放出想要放棄一切的訊號。",
+                    "請妳一定要記住：這絕對絕對不是妳的錯，更不是因為妳軟弱。相反地，是因為妳真的太努力、太溫柔地撐得太久太久了，心靈才累壞了。"
                 ],
                 advice: [
-                    "此時此刻，請答應我先停下所有的思考，不要再試圖一個人硬撐了。請聯絡身邊最信任的家人，或者撥打安心專線1925、生命線1995尋求即時專業協助。",
-                    "右側邱意婷心理師及許豔秋心理師的特約綠色通道均已為您準備就緒。點擊上方或右側預約，一鍵將去識別化的保護狀態同步給專業心理師，讓我們陪妳一起走向光好嗎？",
-                    "我們每個人都在乎妳，妳的生命與感受非常重要。今晚不解決任何事，保護好自己，給自己一個最溫柔的容身之所，好嗎？我們一直在這。"
+                    "此時此刻，請答應我先停下所有的思考，不要再試圖一個人硬撐了。我們特別為您準備了許豔秋臨床心理師的特約綠色通道，點擊下方按鈕即可一鍵將去識別化的保護狀態同步給專業心理師，讓專家陪妳一起走向光好嗎？",
+                    "我們每個人都在乎妳，妳的生命與感受非常重要。請聯絡身邊最信任的人，或者撥打安心專線 1925、生命線 1995 尋求即時專業協助。茶室也會一直在這陪著妳。"
                 ]
             }
         };
@@ -582,11 +670,11 @@
             const fullReply = `${empStr}\n\n${anaStr}\n\n${advStr}`;
 
             updateAppStatusDisplay();
-            appendChatMessage(fullReply, 'ai', true); 
+            appendChatMessage(fullReply, 'ai', true, pool.therapist); 
             syncToHospitalView();
         }
 
-        function appendChatMessage(text, sender, useTypewriter = false) {
+        function appendChatMessage(text, sender, useTypewriter = false, recommendedTherapist = "") {
             const container = document.getElementById('chatContainer');
             const msgDiv = document.createElement('div');
             msgDiv.className = "flex gap-3 max-w-[85%] msg-animate";
@@ -605,27 +693,35 @@
             } else {
                 msgDiv.innerHTML = `
                     <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#8E9A74] to-[#606C38] flex items-center justify-center text-white flex-shrink-0 shadow-xs"><i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i></div>
-                    <div class="space-y-0.5 flex-1">
+                    <div class="space-y-1.5 flex-1">
                         <p class="text-[10px] font-bold text-stone-400">智慧助手</p>
                         <div id="typewriterTarget" class="text-xs text-stone-800 bg-stone-50 border border-stone-100 p-3 rounded-2xl rounded-tl-none leading-relaxed whitespace-pre-wrap"></div>
+                        <div id="interactiveActions" class="hidden flex flex-wrap gap-2 pt-1">
+                            <button onclick="bookTherapist('${recommendedTherapist}')" class="bg-[#606C38] hover:bg-[#4A5331] text-white text-[10px] font-bold py-1 px-2.5 rounded-lg transition shadow-2xs cursor-pointer"><i class="fa-solid fa-calendar-check mr-1"></i>直接預約 ${recommendedTherapist}</button>
+                            <button onclick="quickInput('我想多聊聊你剛剛提到的心理調適與專家建議...')" class="bg-white hover:bg-stone-100 text-stone-700 border border-stone-200 text-[10px] font-medium py-1 px-2.5 rounded-lg transition cursor-pointer">延伸聊聊調適建議</button>
+                        </div>
                     </div>
                 `;
                 container.appendChild(msgDiv);
                 const target = document.getElementById('typewriterTarget');
+                const actions = document.getElementById('interactiveActions');
                 
                 if (useTypewriter) {
                     isThinking = true;
                     let index = 0;
                     target.id = ""; 
+                    actions.id = "";
                     
                     function type() {
                         if (index < text.length) {
                             target.textContent += text.charAt(index);
                             index++;
                             container.scrollTop = container.scrollHeight;
-                            setTimeout(type, 15); 
+                            setTimeout(type, 10); 
                         } else {
                             isThinking = false;
+                            if(recommendedTherapist) actions.classList.remove('hidden');
+                            container.scrollTop = container.scrollHeight;
                         }
                     }
                     type();
@@ -690,15 +786,19 @@
                 return;
             }
             if (currentSystemColor === 'red') {
-                colorBox.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span> 高危紅色級別 (建議第一優先安排實體干預)`;
+                colorBox.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span> 高危紅色級別 (建議第一優先安排特約專家干預)`;
                 colorBox.className = "flex items-center gap-2 text-xs font-bold text-red-500 transition-all";
             } else if (currentSystemColor === 'amber') {
-                colorBox.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> 琥珀級別 (有中度情感/人際調適需求)`;
+                colorBox.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> 琥珀級別 (有中度情感/家庭/人際調適需求)`;
                 colorBox.className = "flex items-center gap-2 text-xs font-bold text-amber-600 transition-all";
             } else {
                 colorBox.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> 微風煦煦 (心理韌性防線完整狀態)`;
                 colorBox.className = "flex items-center gap-2 text-xs font-bold text-emerald-700 transition-all";
             }
+        }
+
+        function bookTherapist(name) {
+            alert(`已為您啟動與【${name}】的快速媒合。您的「智慧情緒狀態燈號」與評估調性已加密同步至心理師端排診系統，感謝您的信任。`);
         }
 
         document.getElementById('chatInput').addEventListener('keydown', function(e) {
