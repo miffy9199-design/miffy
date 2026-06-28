@@ -76,7 +76,7 @@
                 <div class="border-2 border-[#8E9A74] bg-stone-50/50 p-3 rounded-xl flex justify-between items-center cursor-pointer">
                     <div>
                         <p class="text-xs font-bold text-stone-900">年付溫慢方案 (熱門首選✨)</p>
-                        <p class="text-[11px] text-stone-500">享買10個月送2個月優惠，與心理師共享長期蛻變軌跡</p>
+                        <p class="text-[11px] text-stone-500">每月折合僅需 NT$ 249，與心理師共享長期蛻變軌跡</p>
                     </div>
                     <span class="text-xs font-bold text-[#4A5331]">NT$ 2,990 /年</span>
                 </div>
@@ -178,7 +178,7 @@
                 <span onclick="quickInput('我陷入了感情方面的煩惱，不知道該怎麼和另一半溝通，每次想好好談談最後都變成冷戰或互相傷害。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">感情婚姻與親密關係</span>
                 <span onclick="quickInput('和原生家庭間的關係好緊繃，每次回家或和父母溝通都覺得壓力好大，最後都變成爭吵，心真的好累。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">原生家庭與人際窒息感</span>
                 <span onclick="quickInput('最近常常覺得莫名地難過、提不起勁做任何事，對以前喜歡的東西都失去興趣，情緒整天都很低落。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">情緒低落與提不起勁</span>
-                <span onclick="quickInput('每天晚上躺在床上都東思西想停不下來，失眠好久了，好想好好睡個覺，身體已經快要撐不住了。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">長期失眠與睡眠障礙</span>
+                <span onclick="quickInput('每天晚上躺在床上都東思西想停不下來，失眠好久了，好想好好睡個決，身體已經快要撐不住了。')" class="px-3 py-2 bg-white border border-stone-200 rounded-xl text-xs font-medium hover:border-[#606C38] hover:text-[#606C38] cursor-pointer transition shadow-xs">長期失眠與睡眠障礙</span>
             </div>
             
             <div class="pt-4">
@@ -541,7 +541,7 @@
         const dangerKeywords = ['想不開', '絕望', '自殘', '想死', '自殺', '活著好累', '撐不下去了', '放棄一切', '結束生命'];
         const warningKeywords = ['壓力大', '焦慮', '失眠', '很煩', '難過', '提不起勁', '心好累', '好無助', '內耗', '溝通', '冷戰', '感情', '原生家庭', '迷惘', '吵架', '爭吵'];
 
-        // 對話回應資料庫
+        // 對話回應資料庫（豐富內容並提升共情深度）
         const coreResponses = {
             green: {
                 therapist: "黃昱倫 諮商心理師",
@@ -550,7 +550,7 @@
                     "謝謝妳願意敞開心胸，把這裡當作妳暫時歇腳的角落。在忙碌又喧囂的生活節奏中，能留給自己一盞茶的時間好好跟內心對話，真的很不容易。"
                 ],
                 analysis: [
-                    "從妳的字裡間可以看出來，妳目前的心靈韌性與狀態其實非常平穩、富有彈性。這是一個非常適合溫柔沉澱、累積心理核心正能量的黃金期。",
+                    "從妳的字裡行間可以看出來，妳目前的心靈韌性與狀態其實非常平穩、富有彈性。這是一個非常適合溫柔沉澱、累積心理核心正能量的黃金期。",
                     "目前妳的防護防線處於一個非常舒適的綠色區塊。思緒運作平緩，這正是打造專屬『生活儀式感』、進行深層核心內在成長的最佳契機。"
                 ],
                 advice: [
@@ -562,7 +562,7 @@
                 therapist: "邱意婷 諮商心理師",
                 empathy: [
                     "看著妳留下的這些文字，我深深地感受到妳最近肩膀上真的扛了好多沉重的心事。這段時間過得有些緊繃、有些內耗，真的辛苦妳了。",
-                    "聽得出來妳最近真的把自己逼得太緊、太累了。那些日常累積起來的焦慮與煩躁感，就像積雲一樣壓在胸口，讓人感覺能量都快被抽空了對吧？"
+                    "聽得結構妳最近真的把自己逼得太緊、太累了。那些日常累積起來的焦慮與煩躁感，就像積雲一樣壓在胸口，讓人感覺能量都快被抽空了對吧？"
                 ],
                 analysis: [
                     "目前的妳像是一場快要下雨的積雲狀態。無論是人際間的隱形拉扯、親密關係的內耗，還是對未來的不確定，都在悄悄透支妳的心理耐性與睡眠品質。",
@@ -733,13 +733,6 @@
             }
         }
 
-        document.getElementById('chatInput').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault(); 
-                handleUserSend();
-            }
-        });
-
         function showThinkingIndicator() {
             isThinking = true;
             const container = document.getElementById('chatContainer');
@@ -807,6 +800,13 @@
         function bookTherapist(name) {
             alert(`已為您啟動與【${name}】的快速媒合。您的「智慧情緒狀態燈號」與評估調性已加密同步至心理師端排診系統，感謝您的信任。`);
         }
+
+        document.getElementById('chatInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); 
+                handleUserSend();
+            }
+        });
 
         window.onload = function() {
             updateAppStatusDisplay();
