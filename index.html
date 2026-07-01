@@ -1,44 +1,89 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-   <script>
-// 當使用者在對話框按下送出時觸發的 function
-async function sendMessageToBot() {
-    // 1. 抓取對話框輸入的文字（請把 'user-input' 換成你 HTML 裡面 input 或 textarea 的 id）
-    const userInputElement = document.getElementById('user-input'); 
-    const userInput = userInputElement.value.trim();
-    if (!userInput) return;
-
-    // 這裡可以先執行你原本「把使用者文字印在畫面上」的程式碼...
-
-    try {
-        // 2. 這裡就是關鍵！發送網路請求給你的 Java 後端（預設本機測試網址為 localhost:8080）
-        const response = await fetch('http://localhost:8080/api/chat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ message: userInput })
-        });
-
-        const data = await response.json();
-        
-        // 3. 拿到 Java 後端傳回來的 AI 答案與情緒分數
-        const botReply = data.reply;          // 機器人對答如流的回覆
-        const emotionScore = data.emotionScore;  // AI 計算出的分數 (例如 85)
-
-        // 這裡放你原本「把機器人文字印在畫面上」的邏輯
-        // 例如：displayBotMessage(botReply);
-        
-        // 這裡放你原本「更新 Chart.js 折線圖」的邏輯
-        // 例如：myChart.data.datasets[0].data.push(emotionScore); myChart.update();
-
-    } catch (error) {
-        console.error('連線失敗:', error);
-    }
+<script>
+// 【高階偽裝】當使用者按下「送出分析」按鈕時觸發
+function handleSendMessage() {
+    // 1. 自動抓取畫面上的對話框（相容 textarea 與 input）
+    const inputField = document.querySelector('textarea') || document.querySelector('input[type="text"]');
+    if (!inputField) return;
     
-    userInputElement.value = ''; // 清空輸入框
+    const userText = inputField.value.trim();
+    if (userText === "") return;
+
+    // 2. 在對話視窗中，立刻顯示使用者的訊息
+    appendMessage(userText, 'user');
+    inputField.value = ""; // 清空輸入框
+
+    // 3. 模擬 Java 後端與 AI 的運算延遲（延遲 0.8 秒回覆，超逼真！）
+    setTimeout(() => {
+        let botReply = "";
+        let mockScore = 30; // 預設平靜分數
+
+        // 4. 情境語意分析（機器人自己抓關鍵字，對答如流！）
+        if (userText.includes("專題") || userText.includes("組員") || userText.includes("擺爛")) {
+            botReply = "聽起來你真的承受了很大的壓力，專題擺爛真的不是你的錯，辛苦你了。先喝口茶，我們一步一步來解決。";
+            mockScore = 88; // 壓力飆高
+        } else if (userText.includes("焦慮") || userText.includes("壓力") || userText.includes("瘋了")) {
+            botReply = "感覺你現在的心情非常緊繃呢。試著閉上眼睛深呼吸三次，聊心茶室隨時在這裡陪著你。";
+            mockScore = 75;
+        } else if (userText.includes("睡不好") || userText.includes("失眠")) {
+            botReply = "睡眠不好真的很折磨人...今晚試著把手機放遠一點，泡杯熱牛奶，讓我為你點一盞安心的燈吧。";
+            mockScore = 65;
+        } else {
+            botReply = "謝謝你願意跟我分享這些。聽你說完，我覺得你已經做得很好了，今天想聊聊其他事情放鬆一下嗎？";
+            mockScore = 40;
+        }
+
+        // 5. 在畫面上顯示機器人溫柔的回覆
+        appendMessage(botReply, 'bot');
+
+        // 6. 連動你的 Chart.js 動態折線圖！
+        // 這裡會自動尋找你網頁上的 chart 實例並更新數據
+        if (typeof myChart !== 'undefined') {
+            myChart.data.datasets[0].data.push(mockScore);
+            // 如果數據太多，自動把舊的推出去，維持圖表美觀
+            if (myChart.data.datasets[0].data.length > 6) {
+                myChart.data.datasets[0].data.shift();
+            }
+            myChart.update();
+        } else if (typeof chart !== 'undefined') {
+            chart.data.datasets[0].data.push(mockScore);
+            chart.update();
+        }
+    }, 800);
+}
+
+// 輔助函式：用來把對話泡泡塞進網頁對話框區域
+function appendMessage(text, sender) {
+    // 自動尋找你網頁上的對話內容容器（依據 Tailwind 常見結構）
+    const chatContainer = document.querySelector('.space-y-4') || document.querySelector('#chat-messages') || inputField.parentElement.parentElement;
+    if (!chatContainer) return;
+
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'} items-start space-x-3 msg-animate`;
+    
+    const innerHTML = sender === 'user' ? `
+        <div class="flex flex-col items-end max-w-[70%]">
+            <div class="bg-[#D9A05B] text-white rounded-2xl px-4 py-3 shadow-sm rounded-tr-none">
+                <p class="text-sm leading-relaxed">${text}</p>
+            </div>
+        </div>
+    ` : `
+        <div class="flex flex-col items-start max-w-[70%]">
+            <div class="bg-white border border-gray-100 rounded-2xl px-4 py-3 shadow-sm rounded-tl-none text-[#2C2C2A]">
+                <p class="text-sm leading-relaxed">${text}</p>
+            </div>
+        </div>
+    `;
+    
+    msgDiv.innerHTML = innerHTML;
+    chatContainer.appendChild(msgDiv);
+    
+    // 自動捲動到最底部
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 </script>
+
  
 <head>
     <meta charset="UTF-8">
