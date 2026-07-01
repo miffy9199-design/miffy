@@ -1,5 +1,45 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+   <script>
+// 當使用者在對話框按下送出時觸發的 function
+async function sendMessageToBot() {
+    // 1. 抓取對話框輸入的文字（請把 'user-input' 換成你 HTML 裡面 input 或 textarea 的 id）
+    const userInputElement = document.getElementById('user-input'); 
+    const userInput = userInputElement.value.trim();
+    if (!userInput) return;
+
+    // 這裡可以先執行你原本「把使用者文字印在畫面上」的程式碼...
+
+    try {
+        // 2. 這裡就是關鍵！發送網路請求給你的 Java 後端（預設本機測試網址為 localhost:8080）
+        const response = await fetch('http://localhost:8080/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: userInput })
+        });
+
+        const data = await response.json();
+        
+        // 3. 拿到 Java 後端傳回來的 AI 答案與情緒分數
+        const botReply = data.reply;          // 機器人對答如流的回覆
+        const emotionScore = data.emotionScore;  // AI 計算出的分數 (例如 85)
+
+        // 這裡放你原本「把機器人文字印在畫面上」的邏輯
+        // 例如：displayBotMessage(botReply);
+        
+        // 這裡放你原本「更新 Chart.js 折線圖」的邏輯
+        // 例如：myChart.data.datasets[0].data.push(emotionScore); myChart.update();
+
+    } catch (error) {
+        console.error('連線失敗:', error);
+    }
+    
+    userInputElement.value = ''; // 清空輸入框
+}
+</script>
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
