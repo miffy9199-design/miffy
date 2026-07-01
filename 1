@@ -1,0 +1,24 @@
+package com.miffy.chat;
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+
+@RestController
+@RequestMapping("/api")
+@CrossOrigin(origins = "*") // 允許你的前端網頁跨網域連線
+public class ChatController {
+
+    @PostMapping("/chat")
+    public ResponseEntity<ChatResponse> handleChat(@RequestBody ChatRequest request) {
+        String userMessage = request.getMessage();
+
+        // 【對答如流的核心】這裡就是你未來要串接 ChatGPT/Gemini API 的地方
+        // 這裡先寫死一個模擬 AI 的對答如流回應：
+        String aiReply = "聽你這樣說，感覺最近專題的壓力的確讓你喘不過氣。組員擺爛不是你的錯，辛苦你了。先喝口茶，我們一步一步來解決。";
+        int generatedScore = 85; // 模擬 AI 根據對話內容分析出的壓力分數
+
+        // 打包成 JSON 格式回傳給前端
+        ChatResponse response = new ChatResponse(aiReply, generatedScore);
+        return ResponseEntity.ok(response);
+    }
+}
