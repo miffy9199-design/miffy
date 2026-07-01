@@ -1,0 +1,15 @@
+package com.miffy.chat;
+
+public class ChatResponse {
+    private String reply;
+    private int emotionScore;
+
+    public ChatResponse(String reply, int emotionScore) {
+        this.reply = reply;
+        this.emotionScore = emotionScore;
+    }
+
+    // Getters 和 Setters
+    public String getReply() { return reply; }
+    public int getEmotionScore() { return emotionScore; }
+}
